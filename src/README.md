@@ -8,4 +8,6 @@ Everything is available in a Git repository at [github.com/badboy/til](https://g
 
 ## Summary
 
+<!-- summary start -->
 So far there are 0 TILs.
+<!-- summary end -->
