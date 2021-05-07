@@ -11,7 +11,7 @@ I use these tools:
 
 With this `Makefile`:
 
-```
+```makefile
 default:
 	$(MAKE) MAKEFLAGS=--jobs=2 dev
 .PHONY: default
@@ -27,6 +27,7 @@ build:
 
 serve: build
 	@echo "Served on http://localhost:8000"
+	# Change to the generate build directory, then serve it.
 	cd _book && http
 .PHONY: serve
 
@@ -34,4 +35,10 @@ rerun:
 	# fd respects your `.gitignore`
 	fd | entr -s 'make build'
 .PHONY: rerun
+```
+
+All it takes to continously serve and build the project is:
+
+```
+make
 ```
