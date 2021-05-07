@@ -114,8 +114,6 @@ fn try_main() -> Result<()> {
     write!(file, "{}", summmary_end)?;
     write!(file, "{}", rest)?;
 
-    cmd!("mdbook build").run()?;
-
     Ok(())
 }
 
