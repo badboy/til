@@ -3,7 +3,7 @@ title = "Today I Learned"
 description = "Snippets, Thoughts and Notes"
 authors = ["Jan-Erik"]
 language = "en"
-src = "."
+src = "src"
 
 [rust]
 edition = "2018"
