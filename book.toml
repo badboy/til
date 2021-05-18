@@ -14,7 +14,7 @@ create-missing = false
 
 [output.html]
 mathjax-support = true
-git-repository-url = "https://github.com/rust-lang/mdBook/tree/main"
+git-repository-url = "https://github.com/badboy/til"
 edit-url-template = "https://github.com/badboy/til/edit/main/{path}"
 
 [output.html.playground]
