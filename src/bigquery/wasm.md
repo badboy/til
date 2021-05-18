@@ -93,3 +93,7 @@ WITH numbers AS
 SELECT x, y, sumInputs(x, y) as sum
 FROM numbers;
 ```
+
+## References
+
+* [Running Python Code in BigQuery](https://scholtzan.net/blog/bigquery-udf-python/) by Anna Scholtz
