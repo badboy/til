@@ -1,5 +1,11 @@
 # Symbols in shared libraries
 
+List all exported symbols of a dynamic library:
+
+```
+nm -gD path/to/libyourcode.so
+```
+
 To look at the largest objects/functions in libxul:
 
 ```
