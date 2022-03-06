@@ -101,11 +101,12 @@ fn try_main() -> Result<()> {
         )?;
         for entry in category.entries {
             writeln!(file, "  - [{}]({})", entry.title, entry.path.display())?;
+            let path = entry.path.strip_prefix(&category.path).unwrap();
             writeln!(
                 index,
                 "- [{}]({}) - {}",
                 entry.title,
-                entry.path.display(),
+                path.display(),
                 entry.mtime
             )?;
         }
