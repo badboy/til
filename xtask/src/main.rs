@@ -1,8 +1,8 @@
-use std::process;
-use std::path::{Path, PathBuf};
 use std::collections::BTreeMap;
-use std::io::{BufWriter, Write};
 use std::fs::File;
+use std::io::{BufWriter, Write};
+use std::path::{Path, PathBuf};
+use std::process;
 
 use walkdir::WalkDir;
 use xshell::{cmd, read_file};
@@ -28,7 +28,7 @@ struct Entry {
 struct Category {
     path: PathBuf,
     title: String,
-    entries: Vec<Entry>
+    entries: Vec<Entry>,
 }
 
 fn try_main() -> Result<()> {
@@ -74,8 +74,8 @@ fn try_main() -> Result<()> {
         let trimmed_path = entry.path().strip_prefix("src/")?;
         let entry = Entry {
             path: trimmed_path.to_path_buf(),
-            title: title,
-            mtime: mtime,
+            title,
+            mtime,
         };
 
         let c = categories.get_mut(category).unwrap();
@@ -93,10 +93,21 @@ fn try_main() -> Result<()> {
         let mut index = BufWriter::new(File::create(path)?);
         writeln!(index, "# {}\n", category.title)?;
 
-        writeln!(file, "- [{}]({}/index.md)", category.title, category.path.display())?;
+        writeln!(
+            file,
+            "- [{}]({}/index.md)",
+            category.title,
+            category.path.display()
+        )?;
         for entry in category.entries {
             writeln!(file, "  - [{}]({})", entry.title, entry.path.display())?;
-            writeln!(index, "- [{}]({}) - {}", entry.title, entry.path.display(), entry.mtime)?;
+            writeln!(
+                index,
+                "- [{}]({}) - {}",
+                entry.title,
+                entry.path.display(),
+                entry.mtime
+            )?;
         }
     }
     write!(file, "{}", footer)?;
@@ -104,8 +115,12 @@ fn try_main() -> Result<()> {
     let summary_start = "<!-- summary start -->\n";
     let summmary_end = "\n<!-- summary end -->";
     let content = read_file("./src/README.md")?;
-    let (head, rest) = content.split_once(summary_start).ok_or("missing summary line start")?;
-    let (_, rest) = rest.split_once(summmary_end).ok_or("missing summary line end")?;
+    let (head, rest) = content
+        .split_once(summary_start)
+        .ok_or("missing summary line start")?;
+    let (_, rest) = rest
+        .split_once(summmary_end)
+        .ok_or("missing summary line end")?;
 
     let mut file = BufWriter::new(File::create("./src/README.md")?);
     write!(file, "{}", head)?;
@@ -120,18 +135,18 @@ fn try_main() -> Result<()> {
 fn get_last_modification(path: &Path) -> Result<String> {
     let mtime = cmd!("git --no-pager log -1 --pretty='format:%ci' {path}").read()?;
 
-    match mtime.split_once(" ") {
+    match mtime.split_once(' ') {
         Some((date, _)) => Ok(date.to_string()),
-        None => Err("no date found")?,
+        None => Err("no date found".into()),
     }
 }
 
 fn get_title(path: &Path) -> Result<String> {
     let content = read_file(path)?;
 
-    match content.split_once("\n") {
+    match content.split_once('\n') {
         Some((title, _)) => Ok(title.trim_start_matches("# ").to_string()),
-        None => Err("no title found")?,
+        None => Err("no title found".into()),
     }
 }
 
