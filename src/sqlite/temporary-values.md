@@ -14,7 +14,7 @@ SELECT * FROM vals;
 
 To actually create a temporary table:
 
-```
+```sql
 CREATE TEMP TABLE temp_table AS                                     
 WITH t (k, v) AS (
  VALUES
