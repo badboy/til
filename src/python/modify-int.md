@@ -31,4 +31,4 @@ b = 2
 print(a + b)
 ```
 
-(via https://mobile.twitter.com/segfault_witch/status/1512160978129068032#.)
+(via <https://mobile.twitter.com/segfault_witch/status/1512160978129068032>)
