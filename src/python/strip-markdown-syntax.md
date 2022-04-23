@@ -45,4 +45,4 @@ Hello World!
 Today I learned
 ```
 
-(via <https://stackoverflow.com/a/54923798>
+(via <https://stackoverflow.com/a/54923798>)
