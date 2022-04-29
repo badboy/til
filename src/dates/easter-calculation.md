@@ -18,7 +18,7 @@ def easter(year):
     return (m, d)
 
 
-print(easter(2021))
+print(easter(2022))  # (4, 17)
 ```
 
 Based on the wonderful explanation in [§3. Calendrical.](https://ganelson.github.io/inweb/foundation-module/3-tm.html#SP3) of the Inform7 documentation
