@@ -1,6 +1,6 @@
 # Git helpers
 
-## `git-absorb`.
+## `git-absorb`
 
 >  git commit --fixup, but automatic 
 
