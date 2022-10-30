@@ -25,6 +25,7 @@ fn main() {}
 ```
 
 [Rust Playground](https://play.rust-lang.org/?version=nightly&mode=release&edition=2021&gist=c1fe00c9bd36fb00c5794ea981ca8fcd).
+    
 This also reduces the generated wat (WebAssembly text format) to a short and readable output:
 
 ```
