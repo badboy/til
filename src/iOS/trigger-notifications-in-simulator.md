@@ -4,13 +4,13 @@ The notification goes into a `notification.apns` file:
 
 ```json
 {
-    "aps": {
-        "alert": {
-            "title": "Push Notification",
-            "subtitle": "Test Push Notifications",
-            "body" : "Testing Push Notifications on iOS Simulator",
-        }
+  "aps": {
+    "alert": {
+      "title": "Push Notification",
+      "subtitle": "Test Push Notifications",
+      "body": "Testing Push Notifications on iOS Simulator"
     }
+  }
 }
 ```
 
