@@ -1,9 +1,9 @@
-use std::collections::BTreeMap;
 use std::fs::File;
 use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::process;
 
+use indexmap::IndexMap;
 use walkdir::WalkDir;
 use xshell::{cmd, read_file};
 
@@ -35,9 +35,9 @@ fn try_main() -> Result<()> {
     let walk = WalkDir::new("src")
         .min_depth(1) // skip `src/` itself
         .contents_first(false) // ensure we get the directory first
-        .sort_by_file_name();
+        .sort_by_key(|a| a.file_name().to_str().unwrap().to_lowercase());
 
-    let mut categories: BTreeMap<String, Category> = BTreeMap::new();
+    let mut categories: IndexMap<String, Category> = IndexMap::new();
     let mut total_entries = 0;
 
     let ignore = [Path::new("src/README.md"), Path::new("src/SUMMARY.md")];
@@ -55,7 +55,7 @@ fn try_main() -> Result<()> {
             let file = path.file_name().and_then(|s| s.to_str()).unwrap();
             let category = Category {
                 path: path.strip_prefix("src/")?.to_path_buf(),
-                title: camelize(file),
+                title: file.to_string(),
                 entries: vec![],
             };
             categories.insert(file.to_string(), category);
@@ -69,7 +69,7 @@ fn try_main() -> Result<()> {
         let parent = entry.path().parent().ok_or("can't find parent directory")?;
         let category = parent.file_name().and_then(|s| s.to_str()).unwrap();
 
-        let mtime = get_last_modification(entry.path())?;
+        let mtime = get_last_modification(entry.path()).unwrap_or_else(|_| String::from("unknown"));
         let title = get_title(entry.path())?;
         let trimmed_path = entry.path().strip_prefix("src/")?;
         let entry = Entry {
