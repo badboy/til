@@ -16,3 +16,5 @@ idevicesyslog --process Client
 ```
 
 `Client` stands in for the process name (`Client` is the name of Firefox iOS).
+
+via <https://bsddaemonorg.wordpress.com/2021/04/12/analysing-ios-apps-log-output/>
