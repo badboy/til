@@ -31,18 +31,8 @@ def remove_og(soup):
         if property and property.startswith("og:"):
             meta_tag.extract()
 
-        name = meta_tag.get("name")
-        if name and name.startswith("twitter:"):
-            meta_tag.extract()
-
 
 def add_og(soup, title, image, desc=None):
-    twitter_card = soup.new_tag("meta", property="twitter:card", content="summary_large_image")
-    twitter_site = soup.new_tag("meta", property="twitter:site", content="fnordig.de")
-    twitter_title = soup.new_tag("meta", property="twitter:title", content=title)
-    twitter_desc = soup.new_tag("meta", property="twitter:description", content=desc)
-    twitter_image = soup.new_tag("meta", property="twitter:image:src", content=image)
-
     new_title = soup.new_tag("meta", property="og:title", content=title)
     new_desc = soup.new_tag("meta", property="og:description", content=desc)
     new_image = soup.new_tag("meta", property="og:image", content=image)
@@ -52,19 +42,11 @@ def add_og(soup, title, image, desc=None):
         soup.head.append(new_desc)
     soup.head.append(new_image)
 
-    soup.head.append(twitter_card)
-    soup.head.append(twitter_site)
-    soup.head.append(twitter_title)
-    if desc:
-        soup.head.append(twitter_desc)
-    soup.head.append(twitter_image)
-
 
 def main():
     base = Path("_book")
     pages = list(base.glob("*/*.html"))
 
-    i = 0
     for page in pages:
         uri = BASE_URL + str(Path("/") / page.parts[1] / page.parts[2])
         fn = filename_for_url(uri)
