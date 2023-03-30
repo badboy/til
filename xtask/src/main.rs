@@ -150,11 +150,3 @@ fn get_title(path: &Path) -> Result<String> {
         None => Err("no title found".into()),
     }
 }
-
-fn camelize(title: &str) -> String {
-    let mut c = title.chars();
-    let first = c.next().unwrap().to_uppercase();
-    let rest: String = c.collect();
-
-    format!("{}{}", first, rest)
-}
