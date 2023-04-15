@@ -15,3 +15,7 @@ cd ~/.config/home-managaer
 nix flake update
 home-manager-switch
 ```
+
+## Resources
+
+* [juliu.is: Tidying up your $HOME with Nix](https://juliu.is/tidying-your-home-with-nix/)
