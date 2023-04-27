@@ -13,7 +13,7 @@ home-manager switch
 ```
 cd ~/.config/home-managaer
 nix flake update
-home-manager-switch
+home-manager switch
 ```
 
 ## Resources
