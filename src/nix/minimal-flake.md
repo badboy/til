@@ -18,8 +18,7 @@
           default = pkgs.mkShell {
             buildInputs = with pkgs;
               [
-                lima
-                nixpkgs-fmt
+                ripgrep
               ];
           };
         });
@@ -44,7 +43,7 @@ with import <nixpkgs> {};
 
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
-    lima
+    ripgrep
   ];
 }
 ```
