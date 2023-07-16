@@ -32,3 +32,25 @@ Start a shell with:
 ```
 nix develop
 ```
+
+---
+
+Old way:
+
+A `shell.nix` with
+
+```nix
+with import <nixpkgs> {};
+
+pkgs.mkShell {
+  nativeBuildInputs = with pkgs; [
+    lima
+  ];
+}
+```
+
+And run it with
+
+```
+nix-shell
+```
