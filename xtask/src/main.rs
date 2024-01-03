@@ -66,6 +66,10 @@ fn try_main() -> Result<()> {
         if path.ends_with("index.md") {
             continue;
         }
+        let ext = path.extension().and_then(|ext| ext.to_str()).unwrap_or("");
+        if ext != "md" {
+            continue;
+        }
 
         let parent = entry.path().parent().ok_or("can't find parent directory")?;
         let category = parent.file_name().and_then(|s| s.to_str()).unwrap();
