@@ -1,4 +1,5 @@
 default:
+	rm -rf _book
 	$(MAKE) MAKEFLAGS=--jobs=2 dev
 .PHONY: default
 
@@ -12,7 +13,7 @@ build:
 serve: build
 	@echo "Served on http://localhost:8000"
 	@open "http://localhost:8000"
-	cd _book && http
+	cd _book && httplz
 .PHONY: serve
 
 rerun:
