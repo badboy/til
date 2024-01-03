@@ -53,9 +53,10 @@ fn try_main() -> Result<()> {
 
         if entry.file_type().is_dir() {
             let file = path.file_name().and_then(|s| s.to_str()).unwrap();
+            let title = file.to_string().replace('-', " ");
             let category = Category {
                 path: path.strip_prefix("src/")?.to_path_buf(),
-                title: file.to_string(),
+                title,
                 entries: vec![],
             };
             categories.insert(file.to_string(), category);
