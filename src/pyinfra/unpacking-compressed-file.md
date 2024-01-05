@@ -1,4 +1,4 @@
-# Download and unpacking a compressed file using pyinfra
+# Download and unpack a compressed file using pyinfra
 
 [pyinfra] is a tool to automate infrastructure deployments.
 Instead of defining everything in YAML like Ansible it uses plain Python code.
