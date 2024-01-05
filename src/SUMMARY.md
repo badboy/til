@@ -53,6 +53,8 @@
   - [Meta commands in `psql`](postgresql/meta-commands.md)
 - [proxmox](proxmox/index.md)
   - [Resize disks of a VM](proxmox/resize-disk.md)
+- [pyinfra](pyinfra/index.md)
+  - [Download and unpacking a compressed file using pyinfra](pyinfra/unpacking-compressed-file.md)
 - [python](python/index.md)
   - [Modify integer literals](python/modify-int.md)
   - [Deduplicate a list and keep the order](python/ordered-deduplicated-list.md)
