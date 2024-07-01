@@ -64,7 +64,7 @@ I wanted to translate Norwegian, so went with `nben`[^4]. That is this file:
 Then some patching is required, Bergamot has a tool for that:
 
 ```
-$ python3 bergamot-translator-tests/tools/patch-marian-for-bergamot.py --config-path models/nben.student.tiny11/config.intgemm8bitalpha.yml --ssplit-prefix-file $(realpath 3rd_party/ssplit-cpp/nonbreaking_prefixes/nonbreaking_prefix.en)
+; python3 bergamot-translator-tests/tools/patch-marian-for-bergamot.py --config-path models/nben.student.tiny11/config.intgemm8bitalpha.yml --ssplit-prefix-file $(realpath 3rd_party/ssplit-cpp/nonbreaking_prefixes/nonbreaking_prefix.en)
 ```
 
 I don't actually know what exactly it patches nor why they don't offer the already patched files.
