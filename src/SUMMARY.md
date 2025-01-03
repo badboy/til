@@ -62,6 +62,7 @@
 - [pyinfra](pyinfra/index.md)
   - [Download and unpack a compressed file using pyinfra](pyinfra/unpacking-compressed-file.md)
 - [Python](Python/index.md)
+  - [mastodon.py and GoToSocial](Python/mastodon.py-and-gotosocial.md)
   - [Modify integer literals](Python/modify-int.md)
   - [Deduplicate a list and keep the order](Python/ordered-deduplicated-list.md)
   - [pip - Install from Git](Python/pip-git.md)
