@@ -16,6 +16,7 @@ create-missing = false
 mathjax-support = true
 git-repository-url = "https://github.com/badboy/til"
 edit-url-template = "https://github.com/badboy/til/edit/main/{path}"
+additional-css = ["last-changed.css"]
 
 [output.html.playground]
 editable = true
@@ -29,3 +30,7 @@ boost-hierarchy = 2
 boost-paragraph = 1
 expand = true
 heading-split-level = 2
+
+[preprocessor.last-changed]
+command = "mdbook-last-changed"
+renderer = ["html"]
